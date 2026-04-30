@@ -10,13 +10,23 @@ import { useAuth } from '@/hooks/useAuth';
 import ErrorAlert from '@/components/ErrorAlert';
 import Link from 'next/link';
 
+type RecurringFrequency = 'weekly' | 'monthly' | 'yearly';
+
+interface RecurringFormData {
+  title: string;
+  amount: string;
+  category: string;
+  frequency: RecurringFrequency;
+  next_due_date: string;
+}
+
 export default function NewRecurringPage() {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<RecurringFormData>({
     title: '',
     amount: '',
     category: 'Food',
@@ -31,7 +41,7 @@ export default function NewRecurringPage() {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: name === 'frequency' ? (value as RecurringFrequency) : value,
     }));
   };
 
