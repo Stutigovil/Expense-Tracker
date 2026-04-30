@@ -30,7 +30,10 @@ def get_expenses(
     skip: int = Query(0, ge=0),
     limit: int = Query(20, ge=1, le=100),
     category: Optional[str] = Query(None),
-    sort_by: str = Query("newest", regex="^(newest|oldest|highest|lowest)$"),
+    sort_by: str = Query(
+        "newest",
+        pattern="^(newest|oldest|highest|lowest)$",
+    ),
     from_date: Optional[str] = Query(None),
     to_date: Optional[str] = Query(None),
     min_amount: Optional[float] = Query(None, ge=0),
