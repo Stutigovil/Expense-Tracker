@@ -8,8 +8,13 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer
 
+import os
+
 # Configuration
-SECRET_KEY = "your-secret-key-change-this-in-production"  # TODO: Use env variable
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "your-secret-key-change-this-in-production",
+)
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30 * 24  # 30 days
 
