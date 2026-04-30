@@ -8,6 +8,8 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.pool import StaticPool
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./expense_tracker.db")
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 if DATABASE_URL.startswith("sqlite"):
     engine = create_engine(
@@ -24,7 +26,15 @@ if DATABASE_URL.startswith("sqlite"):
         cursor.execute("PRAGMA foreign_keys=ON")
         cursor.close()
 else:
-    engine = create_engine(DATABASE_URL, echo=False)
+    connect_args = {}
+    sslmode = os.environ.get("DB_SSLMODE")
+    if sslmode:
+        connect_args["sslmode"] = sslmode
+
+    if connect_args:
+        engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True, connect_args=connect_args)
+    else:
+        engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
 
 # Session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
