@@ -98,7 +98,7 @@ class RecurringExpense(Base):
     frequency = Column(Enum(FrequencyEnum), nullable=False)
     next_due_date = Column(DateTime, nullable=False, index=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    is_active = Column(Integer, default=1, nullable=False)  # SQLite doesn't have BOOLEAN
+    is_active = Column(Integer, default=1, nullable=False)
 
     # Relationship
     user = relationship("User", back_populates="recurring_expenses")
