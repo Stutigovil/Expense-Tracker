@@ -15,7 +15,7 @@ import Link from 'next/link';
 export default function EditBudgetPage() {
   const router = useRouter();
   const params = useParams();
-  const budgetId = parseInt(params.id as string);
+  const budgetId = params ? parseInt(params.id as string) : 0;
   const { isAuthenticated } = useAuth();
 
   const [budget, setBudget] = useState<Budget | null>(null);

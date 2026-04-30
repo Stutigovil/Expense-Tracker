@@ -15,7 +15,7 @@ import Link from 'next/link';
 export default function EditExpensePage() {
   const router = useRouter();
   const params = useParams();
-  const expenseId = parseInt(params.id as string);
+  const expenseId = params ? parseInt(params.id as string) : 0;
   const { isAuthenticated } = useAuth();
 
   const [expense, setExpense] = useState<Expense | null>(null);
