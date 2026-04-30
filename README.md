@@ -1,68 +1,88 @@
-# Expense Tracker - Production-Ready Full Stack Application
+# 💰 Expense Tracker - Full Stack Application
 
-A comprehensive expense tracking application built with a **database-first approach**, demonstrating advanced database design, relationships, queries, and real-world backend engineering.
+A modern expense tracking app combining advanced backend engineering with a beautifully designed frontend. Features real-time analytics, JWT authentication, and production-grade security.
 
-## 🎯 Key Features
+## ✨ Highlights
 
-### Database-First Design
-- **Advanced SQLAlchemy Models** with proper relationships and cascades
-- **Indexed Queries** for optimal performance (composite indexes)
-- **Foreign Key Constraints** ensuring data integrity
-- **User-Based Data Isolation** (every user only sees their data)
-- **Efficient Aggregation Queries** (sums, counts, averages)
-- **Complex Filtering** (date ranges, categories, amounts, search)
+**Backend Excellence** 🏗️ | Advanced SQLAlchemy ORM, optimized queries, database indexing  
+**Modern Frontend** 🎨 | Next.js 16 with TypeScript, Tailwind CSS, responsive design  
+**Real-Time Analytics** 📊 | Interactive charts, category breakdowns, spending trends  
+**Secure Auth** 🔐 | JWT tokens, bcrypt hashing, user-level data isolation  
+**Deployed & Ready** 🚀 | Frontend on Vercel, Backend on Railway
 
-### Core Features
-✅ **User Authentication** - JWT-based login/signup with bcrypt hashing  
-✅ **Expense Management** - CRUD operations with advanced filtering/sorting  
-✅ **Budget Tracking** - Monthly budgets with over-budget alerts  
-✅ **Recurring Expenses** - Auto-generate subscriptions (weekly/monthly/yearly)  
-✅ **Dashboard Analytics** - Real-time insights with SQL aggregations  
-✅ **Category Breakdown** - Pie charts and spending by category  
-✅ **Pagination** - Efficient pagination for large datasets  
+---
 
-### Database Schema
+## 🎯 Core Features
+
+-  **Expense Management** - CRUD with filtering, search, pagination
+-  **Budget Tracking** - Monthly budgets with visual alerts
+-  **Recurring Expenses** - Auto-generate subscriptions (weekly/monthly/yearly)
+-  **Analytics Dashboard** - Real-time insights, pie charts, spending trends
+-  **Secure Auth** - JWT-based login/signup, bcrypt hashing
+-  **Responsive UI** - Mobile, tablet, desktop optimized
+
+---
+
+## 📋 Tech Stack
+
+**Frontend:** Next.js 16 • TypeScript • Tailwind CSS • Recharts • Axios • React Hook Form  
+**Backend:** FastAPI • SQLAlchemy • PostgreSQL • Pydantic • JWT • Bcrypt  
+**Deployment:** Vercel (Frontend) • Railway (Backend)
+
+---
+
+## � Screenshots
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.png)
+*Real-time analytics with spending summary, budget alerts, and category breakdown pie chart*
+
+### Expenses
+![Expenses](./screenshots/expense.png)
+*Manage transactions with filtering, sorting, and detailed expense entries*
+
+### Budgets
+![Budgets](./screenshots/budget.png)
+*Set monthly budgets by category with visual progress tracking and alerts*
+
+### Recurring Expenses
+![Recurring](./screenshots/recurring.png)
+*Automated subscription management with flexible scheduling (weekly/monthly/yearly)*
+
+### Advanced Features
+![Negative Expense](./screenshots/negative_expense.png)
+*Support for adjustments and negative transactions for refunds and credits*
+
+---
+
+## �📋 Project Structure
+
 ```
-users (authentication)
-├── expenses (transactions)
-├── budgets (monthly limits)
-└── recurring_expenses (subscriptions)
-```
-
-## 📋 Project Structure
-
-```
-ET/
-├── backend/
-│   ├── main.py              # FastAPI entry point
-│   ├── database.py          # SQLAlchemy setup + migrations
-│   ├── models.py            # ORM models with relationships & indexes
-│   ├── schemas.py           # Pydantic validation schemas
-│   ├── auth.py              # JWT + password hashing
-│   ├── crud.py              # Advanced database operations ⭐
-│   ├── routes/
-│   │   ├── auth.py          # Authentication endpoints
-│   │   ├── expenses.py      # Expense CRUD + filtering
-│   │   ├── dashboard.py     # Analytics endpoints
-│   │   ├── budgets.py       # Budget management
-│   │   └── recurring.py     # Recurring expenses
-│   └── requirements.txt
+expense-tracker/
+├── backend/                 # FastAPI server
+│   ├── main.py             # Entry point
+│   ├── database.py         # SQLAlchemy setup
+│   ├── models.py           # ORM models with relationships
+│   ├── schemas.py          # Pydantic validation
+│   ├── crud.py             # Database operations 
+│   ├── auth.py             # JWT & password hashing
+│   └── routes/             # API endpoints
 │
-├── frontend/
+├── frontend/               # Next.js frontend
 │   ├── src/
-│   │   ├── app/             # Next.js pages
-│   │   ├── components/      # Reusable React components
-│   │   ├── api/             # API client functions
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── types/           # TypeScript types
-│   │   └── lib/             # Utilities
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── tailwind.config.ts
+│   │   ├── app/           # Pages (login, dashboard, etc.)
+│   │   ├── components/    # Reusable components
+│   │   ├── api/           # API client functions
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── types/         # TypeScript interfaces
+│   │   └── lib/           # Utilities
+│   ├── tailwind.config.ts # Design tokens
+│   └── package.json
 │
 └── README.md
 ```
 
+<<<<<<< HEAD
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -388,7 +408,75 @@ In `database.py`, set `echo=True` in engine creation to see all SQL queries.
 ## 📄 License
 
 Built as an assessment project demonstrating production-grade full-stack development.
+=======
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────┐
+│  Frontend (Vercel)                      │
+│  Next.js • TypeScript • Tailwind CSS    │
+└────────────────────┬────────────────────┘
+                     │ Axios + JWT
+┌────────────────────▼────────────────────┐
+│  Backend (Railway)                      │
+│  FastAPI • SQLAlchemy • PostgreSQL      │
+└────────────────────┬────────────────────┘
+                     │ SQL
+┌────────────────────▼────────────────────┐
+│  Database (PostgreSQL)                  │
+│  Indexed tables • Relationships         │
+└─────────────────────────────────────────┘
+```
+>>>>>>> b89d5b8 (docs: update README with project overview and screenshots)
 
 ---
 
-**Key Takeaway**: This application prioritizes database design, relationships, query optimization, and real-world backend logic over UI complexity. Every feature demonstrates proper database practices.
+## 🗄️ Database Schema
+
+```
+USERS (1:N)
+├── EXPENSES (amount, category, date)
+├── BUDGETS (monthly_limit, month, year)
+└── RECURRING_EXPENSES (frequency, amount)
+
+Indexes: (user_id, date), (user_id, category)
+```
+
+---
+
+## 🔐 Security
+
+-  **JWT Authentication** - Stateless tokens with expiration
+-  **Bcrypt Hashing** - Industry-standard password security
+-  **User Isolation** - Each user only sees their data
+-  **Input Validation** - Pydantic schemas on all endpoints
+-  **SQL Injection Prevention** - Parameterized queries via ORM
+-  **CORS** - Restricted to frontend origin
+
+---
+
+## 🎓 Learning Outcomes
+
+-  Full-stack TypeScript/Python development
+-  Database design with relationships & constraints
+-  JWT authentication & security best practices
+-  RESTful API design
+-  React hooks & state management
+-  Real-time data visualization
+-  Production deployment
+-  Error handling & validation
+
+---
+
+## 📄 Documentation
+
+- [QUICK_START.md](./QUICK_START.md) - Setup guide
+- [DATABASE_ARCHITECTURE.md](./DATABASE_ARCHITECTURE.md) - Schema details
+- [DATABASE_FEATURES.md](./DATABASE_FEATURES.md) - Advanced concepts
+- [ASSESSMENT_VERIFICATION.md](./ASSESSMENT_VERIFICATION.md) - Features
+
+---
+
+**Built with ❤️ for production-grade full-stack development**
